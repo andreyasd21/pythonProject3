@@ -10,30 +10,26 @@ def get_all():
     return load_candidates_from_json()
 
 
-def get_candidate(candidate_id):
+def get_candidate_by_pk(pk):
     for candidate in load_candidates_from_json():
-        if candidate_id == candidate['id']:
+        if pk == candidate['id']:
             return candidate
     return 'Такого кандидата нет в списке.'
 
 
 def get_candidate_by_name(candidate_name):
+    result = []
     for candidate in load_candidates_from_json():
-        if candidate_name.lower() in candidate['name'].lower().split(' '):
-            return candidate
-    return 'Такого кандидата нет в списке.'
+        if candidate_name in candidate['name'].lower():
+            result.append(candidate)
+    return result
 
 
 def get_candidate_by_skill(skill_name):
-
+    result = []
     for candidate in load_candidates_from_json():
         if skill_name.lower() in candidate['skills'].lower().split(', '):
-            return candidate
+            result.append(candidate)
+    return result
 
-    return 'Такого кандидата нет в списке.'
 
-
-print(load_candidates_from_json())
-print(get_candidate(1))
-print(get_candidate_by_name('adela'))
-print(get_candidate_by_skill('go'))
