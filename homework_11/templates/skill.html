@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Навыки кандидатов.{{ candidates }}</title>
+    <title>Навыки кандидатов.</title>
     </head>
     <body>
-        <h1>Найдено кандидатов: {{ count_candidate }}</h1>
+        <h1>Найдено кандидатов со скилом: {{ count_candidates }}</h1>
 
-        {% for candidate in candidates %}
-            <p><a href="/candidates/{{candidate.id}}">{{candidate.name}}</a> </p>
+        {% for candidate in skills %}
+            <p><a href="/candidates/{{candidate.id}}">{{ candidate.name }}</a> </p>
         {%endfor%}
     </body>
 </html>
